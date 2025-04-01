@@ -42,13 +42,10 @@ public class FrogJmp {
     }
 
     public static int solution(int X, int Y, int D) {
-        int count = 0;
-        int currentPosition = X;
+        // 자바에서 올림(ceil) 연산 없이 구현하는 방법
+        // (Y - X + D - 1) / D: 점프가 딱 나누어떨어지지 않을 경우 올림 역할 수행
 
-        while (currentPosition < Y) {
-            currentPosition = currentPosition + D;
-            count++;
-        }
+        int count = (Y - X + D - 1) / D;
 
         return count;
     }
