@@ -24,6 +24,11 @@ package org.example.timeComplexity;
     N is an integer within the range [0..100,000];
     the elements of A are all distinct;
     each element of array A is an integer within the range [1..(N + 1)].
+
+ 📌 문제 해석
+  배열에서 빠진 숫자 찾기 
+  
+  - 가우스 합 공식 사용하여 구현 : 1부터 (N+1)까지의 합을 계산한 후, 배열의 총합을 빼면 빠진 숫자가 남는다.
 * */
 
 public class PermMissingElem {
@@ -33,19 +38,14 @@ public class PermMissingElem {
 
     public static int solution(int[] A) {
         int N = A.length;
-        boolean[] seen = new boolean[N + 1]; // 인덱스 0~N까지 사용 (N+1개) 모든 요소가 false 로 초기화 된다
 
+        long expectedSum = (long) (N + 1) * (1 + N + 1) / 2;
+
+        long actualSum = 0;
         for (int num : A) {
-            seen[num-1] = true;
+            actualSum += num;
         }
 
-        for (int i = 0; i < N; i++) {
-            if(!seen[i]){
-                return i+1;
-            }
-        }
-
-
-        return 0;
+        return (int) (expectedSum - actualSum);
     }
 }
