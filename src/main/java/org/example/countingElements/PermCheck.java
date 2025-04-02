@@ -62,11 +62,13 @@ public class PermCheck {
 		int N = A.length;
 		long expectedSum = (long) N * (N + 1) / 2; // 오버플로우 방지
 		long actualSum = 0;
+		boolean[] seen = new boolean[N + 1]; // 등장한 숫자를 기록
 
 		for (int num : A) {
-			if (num < 1 || num > N ) {
-				return 0; // 1보다 작거나, N보다 크거나, 중복된 경우 순열이 아님
+			if (num < 1 || num > N || seen[num]) {
+				return 0; // 범위를 벗어나거나 중복된 숫자가 있으면 순열이 아님
 			}
+			seen[num] = true;
 			actualSum += num;
 		}
 

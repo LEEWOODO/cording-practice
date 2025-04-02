@@ -88,7 +88,7 @@ public class MaxCounter {
 			// max counter 연산
 			if (num == N + 1) {
 				lastMaxUpdate = maxCounter;
-				System.out.println("lastMaxUpdate = " + lastMaxUpdate);
+//				System.out.println("lastMaxUpdate = " + lastMaxUpdate);
 			} else {
 				int index = num - 1;
 				// 아직 lastMaxUpdate가 적용되지 않은 경우 업데이트
@@ -101,7 +101,7 @@ public class MaxCounter {
 				maxCounter = Math.max(maxCounter, counters[index]);
 			}
 
-			System.out.println("Arrays.toString(counters) = " + Arrays.toString(counters));
+//			System.out.println("Arrays.toString(counters) = " + Arrays.toString(counters));
 		}
 
 		// 마지막 max counter 연산을 적용 (누락된 요소 보정)
