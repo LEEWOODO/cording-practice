@@ -21,18 +21,13 @@ A ≤ B.
 * */
 public class CountDiv {
     public static void main(String[] args) {
-        System.out.println(solution(6, 11,2));
+        System.out.println(solution(6, 6,2));
     }
 
     private static int solution(int A, int B, int K) {
-
-        int count = 0;
-
-        while (A<B){
-            if(A % K == 0) count++;
-            A++;
+        if (A == 0) {
+            return (B / K) + 1; // 0도 포함
         }
-
-        return count;
+        return (B / K) - ((A - 1) / K);
     }
 }
