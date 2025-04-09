@@ -47,25 +47,22 @@ public class Dominator {
 
 		// Step 1: Find a candidate
 		int size = 0;
-		int value = 0;
+		int candidate = 0;
 
 		for (int num : A) {
 			if (size == 0) {
-				value = num;
+				candidate = num;
 				size++;
 			} else {
-				if (value == num) {
+				if (candidate == num) {
 					size++;
 				} else {
 					size--;
 				}
 			}
 		}
-		System.out.println("value = " + value);
-		System.out.println("size = " + size);
 
 		// Step 2: Verify if it's the dominator
-		int candidate = value;
 		int count = 0;
 		int index = -1;
 
