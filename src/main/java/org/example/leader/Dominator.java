@@ -43,25 +43,43 @@ public class Dominator {
 	}
 
 	private static int solution(int[] A) {
-		int N = A.length;
-		int dominator= -1;
+		if (A.length == 0) return -1;
 
-		if (N == 0) {
-			return -1;
-		}
+		// Step 1: Find a candidate
+		int size = 0;
+		int value = 0;
 
-		HashMap<Integer, Integer> map = new HashMap<>();
-		for (int i = 0; i < N; i++) {
-			map.put(A[i], map.getOrDefault(A[i], 0) + 1);
-		}
-
-
-		for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
-			if (entry.getValue() > N / 2) {
-				dominator = entry.getKey();
-				break;
+		for (int num : A) {
+			if (size == 0) {
+				value = num;
+				size++;
+			} else {
+				if (value == num) {
+					size++;
+				} else {
+					size--;
+				}
 			}
 		}
-		return dominator;
+		System.out.println("value = " + value);
+		System.out.println("size = " + size);
+
+		// Step 2: Verify if it's the dominator
+		int candidate = value;
+		int count = 0;
+		int index = -1;
+
+		for (int i = 0; i < A.length; i++) {
+			if (A[i] == candidate) {
+				count++;
+				index = i; // save any index of the candidate
+			}
+		}
+
+		if (count > A.length / 2) {
+			return index;
+		}
+
+		return -1;
 	}
 }
