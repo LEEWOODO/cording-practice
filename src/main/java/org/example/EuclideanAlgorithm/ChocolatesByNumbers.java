@@ -1,4 +1,4 @@
-package EuclideanAlgorithm;
+package org.example.EuclideanAlgorithm;
 
 import java.util.Arrays;
 

@@ -1,4 +1,4 @@
-package EuclideanAlgorithm;
+package org.example.EuclideanAlgorithm;
 
 // Check whether two numbers have the same prime divisors.
 // 두 숫자의 소인수 약수가 같은지 확인
