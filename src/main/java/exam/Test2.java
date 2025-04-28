@@ -3,29 +3,9 @@ package exam;
 import java.util.*;
 
 public class Test2 {
-//    public static void main(String[] args) {
-//        Pizza[] menu = {
-//                new Pizza("margherita", 90, 80, 100),
-//                new Pizza("hawaii", 80, 90, 120),
-//                new Pizza("capricciosa", 50, 70, 130),
-//                new Pizza("greek", 50, 70, 130)
-//        };
-//
-//        OrderItem[] order = {
-//                new OrderItem("greek", "Small", 5),
-//                new OrderItem("margherita", "Small", 4),
-//                new OrderItem("hawaii", "Large", 1),
-//                new OrderItem("margherita", "Medium", 2),
-//                new OrderItem("capricciosa", "Small", 7),
-//        };
-//
-//
-//        System.out.println(solution(menu, order));
-//    }
-
     Map<String, Pizza> menuMap;
 
-    private int solution(Pizza[] menu, OrderItem[] order) {
+    protected int solution(Pizza[] menu, OrderItem[] order) {
         menuMap = new HashMap<>();
         for (Pizza p : menu) {
             menuMap.put(p.name, p);
