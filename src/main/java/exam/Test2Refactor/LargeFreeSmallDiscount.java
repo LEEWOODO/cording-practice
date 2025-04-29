@@ -28,16 +28,16 @@ public class LargeFreeSmallDiscount implements DiscountStrategy {
 	public int apply(List<OrderItem> orderItems, Map<String, Pizza> menuMap, int originalTotal) {
 		Map<String, Integer> smallCount = new HashMap<>();
 		Map<String, Integer> largeCount = new HashMap<>();
-		int total = 0;
 		for (OrderItem item : orderItems) {
-			total += item.getPrice(menuMap) * item.quantity;
 			if (item.size.equals("Small")) smallCount.put(item.name, item.quantity);
 			if (item.size.equals("Large")) largeCount.put(item.name, item.quantity);
 		}
+		System.out.println("smallCount = " + smallCount);
+		System.out.println("largeCount = " + largeCount);
 		for (String name : menuMap.keySet()) {
 			int free = Math.min(smallCount.getOrDefault(name, 0), largeCount.getOrDefault(name, 0));
-			total -= free * menuMap.get(name).price_S;
+			originalTotal -= free * menuMap.get(name).price_S;
 		}
-		return total;
+		return originalTotal;
 	}
 }
